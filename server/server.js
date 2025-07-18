@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectDB from './configs/mongodb.js';
+import userRouter from './routes/userRouter.js';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
+
+app.use('/api/user', userRouter); // user routes
 
 // MongoDB Connection & Server Listener
 (async () => {
