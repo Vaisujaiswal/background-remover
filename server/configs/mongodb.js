@@ -1,13 +1,18 @@
-import e from "express";
 import mongoose from "mongoose";
 
 const connectDB = async () => {
+  try {
+    console.log("Connecting to MongoDB...");
+    await mongoose.connect(`${process.env.MONGODB_URI}/bg-remover`);
 
     mongoose.connection.on("connected", () => {
-        console.log("MongoDB connection successful");
+      console.log("✅ MongoDB connection successful");
     });
-
-    await mongoose.connect(`${process.env.MONGODB_URI}/bg-remover`)
-}
+  } catch (error) {
+    console.error("❌ Failed to connect to MongoDB (outer catch):", error);
+    throw error; 
+  }
+};
 
 export default connectDB;
+
