@@ -3,6 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './configs/mongodb.js';
 import userRouter from './routes/userRouter.js';
+import bodyParser from 'body-parser';
+import { Webhook } from 'svix';
+
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -18,7 +21,10 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.use('/api/user', userRouter); // user routes
+// app.use('/api/user', userRouter); // user routes
+
+app.use('/api/user/webhook', bodyParser.raw({ type: 'application/json' }), userRouter);
+app.use('/api/user', userRouter); // keep other user routes below if needed
 
 // MongoDB Connection & Server Listener
 (async () => {
