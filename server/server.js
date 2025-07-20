@@ -11,11 +11,13 @@ const app = express();
 
 // middlewares
 app.use(cors());
+// Place webhook BEFORE express.json()
+app.post('/api/user/webhook', bodyParser.raw({ type: 'application/json' }), webhook);
+
+// Now apply global parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// webhook route (must be above router)
-app.post('/api/user/webhook', bodyParser.raw({ type: 'application/json' }), webhook);
 
 // user routes (future expansion)
 app.use('/api/user', userRouter);
