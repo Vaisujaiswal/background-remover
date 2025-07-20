@@ -6,27 +6,26 @@ import userRouter from './routes/userRouter.js';
 import bodyParser from 'body-parser';
 import { webhook } from './controllers/userController.js';
 
-
 const port = process.env.PORT || 3000;
 const app = express();
 
+// middlewares
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// middleware
-app.use(cors()); // enable CORS
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-// routes
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-// app.use('/api/user', userRouter); // user routes
-
+// webhook route (must be above router)
 app.post('/api/user/webhook', bodyParser.raw({ type: 'application/json' }), webhook);
+
+// user routes (future expansion)
 app.use('/api/user', userRouter);
 
-// MongoDB Connection & Server Listener
+// base route
+app.get('/', (req, res) => {
+  res.send('🟢 Backend Running');
+});
+
+// connect to DB & start server
 (async () => {
   try {
     await connectDB();
@@ -37,6 +36,5 @@ app.use('/api/user', userRouter);
     console.error('❌ Error starting server:', error);
   }
 })();
-
 
 export default app;
