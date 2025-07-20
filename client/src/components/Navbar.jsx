@@ -3,11 +3,21 @@ import { assets } from '../assets/assets';
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext.jsx';
+import { useEffect } from 'react';
 
 const Navbar = () => {
 
   const {openSignIn} = useClerk();
   const {isSignedIn, user} = useUser();
+  const {credit, loadCreditsData} = useContext(AppContext);
+
+  useEffect(() => {
+    if (isSignedIn) { 
+      loadCreditsData();
+    }
+  }, [isSignedIn]);
 
   return (
     <div className='flex justify-between items-center p-4 mx-5 lg:mx-20'>

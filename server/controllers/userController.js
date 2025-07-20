@@ -114,6 +114,19 @@ const webhook = async (req, res) => {
 };
 
 
+// user credit data
+const userCreditData = async (req, res) => {
+  try {
 
+    const { clerkId } = req.body;
+    const userData = await userModel.findOne({ clerkId });
+    res.json({ success: true, data: userData.creditBalance });
 
-export { webhook };
+  } catch (error) {
+    console.error("❌ Error fetching user credit data:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+  return res.status(200).json({ success: true, data: user });
+};
+
+export { webhook, userCreditData };
