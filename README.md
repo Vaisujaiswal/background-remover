@@ -34,11 +34,10 @@ This full-stack AI Background Remover lets users upload an image, removes the ba
 ---
   
 
-## 1️⃣ Clone the Repository
+1️⃣ Clone the Repository
 
 ```
-git clone https://github.com/your-username/bg-remover.git
-cd bg-remover
+git clone https://github.com/Vaisujaiswal/background-remover.git
 ```
 2️⃣ Backend Setup (Server)
 
