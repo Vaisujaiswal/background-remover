@@ -48,18 +48,18 @@ npm install
 
 - Create .env file in /server folder:
   
-  ```
+```
   PORT=3000
   MONGODB_URI=your_mongodb_uri
   CLERK_SECRET_KEY=your_clerk_secret
   CLIPDROP_API_KEY=your_clipdrop_key
-  ```
+```
 
 - Run backend locally:
 
-  ```
+```
   npm run server
-  ```
+```
 
 - Your backend should now run at http://localhost:3000
 
