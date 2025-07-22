@@ -29,9 +29,9 @@ const AppContextProvider = (props) => {
       });
 
       if (data.success) {
-        console.log("Full response from backend:", data);
+        // console.log("Full response from backend:", data);
         setCredit(data.credits); // update if your backend returns { success, data: 50 }
-        console.log("User credit balance:", data.credits);
+        // console.log("User credit balance:", data.credits);
       }
     } catch (error) {
       // console.log(error);
@@ -77,7 +77,7 @@ const AppContextProvider = (props) => {
       // console.log("Image received in removeBg:", image);
 
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
     }
   }

@@ -8,7 +8,7 @@ const BgSlider = () => {
 
   const handleSliderChange = (e) => {
     setSliderImages(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   return (
