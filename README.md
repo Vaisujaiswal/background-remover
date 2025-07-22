@@ -32,10 +32,68 @@ This full-stack AI Background Remover lets users upload an image, removes the ba
 - 📦 Fully deployed backend & frontend
 
 ---
+  
+
+## 1️⃣ Clone the Repository
+
+```
+git clone https://github.com/your-username/bg-remover.git
+cd bg-remover
+```
+2️⃣ Backend Setup (Server)
+
+```
+cd server
+npm install
+```
+
+- Create .env file in /server folder:
+  
+  ```
+  PORT=3000
+  MONGODB_URI=your_mongodb_uri
+  CLERK_SECRET_KEY=your_clerk_secret
+  CLIPDROP_API_KEY=your_clipdrop_key
+  ```
+
+- Run backend locally:
+
+  ```
+  npm run server
+  ```
+
+- Your backend should now run at http://localhost:3000
+
+3️⃣ Frontend Setup (Client)
+
+```
+cd ../client
+npm install
+```
+
+- Create .env file in /client:
+
+ ```
+  VITE_CLERK_PUBLISHABLE_KEY=your_clerk_frontend_key
+  VITE_BACKEND_URL=http://localhost:3000
+```
+
+- Start frontend:
+
+```
+npm run dev
+```
+
+- App runs at http://localhost:5173
+
+---
 
 ## 🌐 Deployment
 
 - Frontend: Deploy /client to Netlify
 
 - Backend: Deploy /server to Render
+
+
+
 
