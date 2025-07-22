@@ -33,5 +33,8 @@ This full-stack AI Background Remover lets users upload an image, removes the ba
 
 ---
 
+🌐 Deployment
+Frontend: Deploy /client to Netlify
 
+Backend: Deploy /server to Render
 
