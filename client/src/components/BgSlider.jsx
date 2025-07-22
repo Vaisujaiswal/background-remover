@@ -14,7 +14,7 @@ const BgSlider = () => {
   return (
     <div className='pb-10 md:py-20 mx-8'>
 
-      <h1 className='mb-16 sm:mb-20 text-center text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold bg-gradient-to-r from-slate-950 to-slate-300 bg-clip-text text-transparent'>Steps to remove background <br /> of the image in seconds.</h1>
+      <h1 className='mb-16 sm:mb-20 text-center text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold  bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-transparent pb-1'>Image With And Without Background</h1>
 
       <div className='relative w-full max-w-4xl overflow-hidden m-auto rounded-xl'>
         <img src={assets.with_bg_img} style={{clipPath: `inset(0 ${100.2 - sliderimages}% 0 0)`}}  />

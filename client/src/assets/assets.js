@@ -1,13 +1,13 @@
 import logo from './logo.png';
-import hero from './hero.png';
-import with_bg_img from './with_bg_img.jpeg';
-import without_bg_img from './with_bg_img-removebg-preview.png';
+import header from './header.jpg';
+import with_bg_img from './with_bg.jpg';
+import without_bg_img from './without_bg.jpeg';
 import withbg from './with.jpg';
 import withoutbg from './without.jpeg';
 
 export const assets =  { 
     logo,
-    hero,
+    header,
     with_bg_img,
     without_bg_img,
     withbg,

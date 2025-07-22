@@ -8,6 +8,11 @@
     font-family: poppins;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+
 .slider{
     -webkit-appearance: none;
     height: 100%;

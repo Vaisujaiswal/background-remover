@@ -5,6 +5,7 @@ import connectDB from './configs/mongodb.js';
 import userRouter from './routes/userRouter.js';
 import bodyParser from 'body-parser';
 import { webhook } from './controllers/userController.js';
+import imageRouter from './routes/imageRouter.js';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 // Place webhook BEFORE express.json()
 app.post('/api/user/webhook', bodyParser.raw({ type: 'application/json' }), webhook);
+app.use('/api/image', imageRouter);
 
 // Now apply global parsers
 app.use(express.json());

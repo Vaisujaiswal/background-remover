@@ -117,16 +117,20 @@ const webhook = async (req, res) => {
 // user credit data
 const userCreditData = async (req, res) => {
   try {
+    const clerkId = req.clerkId; // ✅ from middleware
 
-    const { clerkId } = req.body;
     const userData = await userModel.findOne({ clerkId });
-    res.json({ success: true, data: userData.creditBalance });
 
+    if (!userData) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, credits: userData.creditBalance }); // fix: "credits" instead of "data"
   } catch (error) {
     console.error("❌ Error fetching user credit data:", error);
     res.status(500).json({ success: false, error: error.message });
   }
-  return res.status(200).json({ success: true, data: user });
 };
+
 
 export { webhook, userCreditData };
